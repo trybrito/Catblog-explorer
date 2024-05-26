@@ -1,0 +1,333 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  font-size: 62.5%; /* 10px */
+
+  --color-base-white: #fff;
+  --color-base-variant-white: #f4fcff;
+  --color-base-blue-400: #387e96;
+}
+
+html,
+body,
+input,
+button {
+  font-family: "Mulish", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  background-color: var(--color-base-white);
+}
+
+.page-wrapper {
+  overflow-x: hidden;
+}
+
+header > div,
+.content-wrapper,
+footer > div {
+  animation: slideFadingLeft 400ms ease-in-out;
+}
+
+.container {
+  width: min(124rem, 100%);
+  margin: 0 auto;
+}
+
+header {
+  background-color: var(--color-base-blue-400);
+  padding: 1.6rem 2.8rem;
+}
+
+header .logo {
+  cursor: pointer;
+}
+
+header .logo-container:hover .logo {
+  animation: bounce 1s ease-in-out backwards infinite;
+}
+
+header > div.container {
+  display: flex;
+  align-items: center;
+  gap: 2.4rem;
+}
+
+header form,
+header form input {
+  width: 100%;
+}
+
+header form label {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  overflow: hidden;
+}
+
+header form input,
+header form input::placeholder {
+  color: var(--color-base-white);
+}
+
+header form input {
+  padding: 1.2rem 1.4rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 0;
+  border-radius: 0.4rem;
+}
+
+header form input:focus {
+  animation: blink 300ms linear;
+}
+
+header .profile-image {
+  width: 4.2rem;
+  height: 4.2rem;
+  border-radius: 50%;
+  transition: all 100ms linear;
+}
+
+.profile-image,
+div.interactions-container img {
+  cursor: pointer;
+}
+
+.profile-image:hover {
+  transform: scale(1.1);
+  filter: brightness(125%);
+}
+
+.profile-image:active,
+div.interactions-container img:active {
+  transform: scale(0.9);
+}
+
+.content-wrapper {
+  background-color: var(--color-base-white);
+  padding-bottom: 3.9rem;
+}
+
+main .post-content,
+aside {
+  padding: 0 2.2rem;
+}
+
+main img,
+aside section img {
+  transition: filter 200ms linear, width 400ms ease-in-out;
+}
+
+main img:hover,
+aside section img:hover {
+  filter: saturate(175%) brightness(0.9);
+}
+
+main > img {
+  width: 100%;
+}
+
+main .post-title,
+main .post-content p {
+  margin-top: 3.1rem;
+}
+
+.post-title h1 {
+  font-size: 2.4rem;
+  line-height: 3.8rem;
+}
+
+main .interactions-container {
+  margin-top: 0.8rem;
+}
+
+.interactions-container img {
+  transition: all 200ms linear;
+}
+
+.interactions-container img + img {
+  margin-left: 0.8rem;
+}
+
+.interactions-container img:hover {
+  transform: scale(1.1);
+  filter: brightness(1.1) saturate(200%) hue-rotate(5deg);
+}
+
+.post-content p {
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+}
+
+aside {
+  margin-top: 3.1rem;
+}
+
+aside h2 {
+  font-size: 2.4rem;
+  line-height: 3.8rem;
+}
+
+.sections-wrapper {
+  margin-top: 3.2rem;
+}
+
+.sections-wrapper div + div {
+  margin-top: 3.2rem;
+}
+
+aside section {
+  display: flex;
+}
+
+aside section div {
+  height: 10rem;
+  overflow-y: scroll;
+  margin-left: 1.6rem;
+}
+
+aside section img {
+  width: 15.1rem;
+  border-radius: 0.6rem;
+}
+
+aside section img:hover {
+  width: 38.5rem;
+}
+
+aside section div {
+  transition: all 300ms ease-in-out;
+}
+
+aside section img:hover + div {
+  opacity: 0;
+}
+
+aside section img:not(:hover) + div {
+  opacity: 1;
+  transition-duration: 600ms;
+}
+
+aside section div h3 {
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+}
+
+aside section div p {
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+}
+
+footer {
+  padding: 2.6rem 0;
+  font-weight: 600;
+  font-size: 1.6rem;
+  background-color: var(--color-base-blue-400);
+  color: var(--color-base-white);
+  text-align: center;
+}
+
+@media (min-width: 1240px) {
+  .page-wrapper {
+    display: grid;
+    grid-template-areas:
+      "header header"
+      "content content"
+      "footer footer";
+  }
+
+  .container {
+    padding: 0 1.6rem;
+  }
+
+  header {
+    grid-area: header;
+    padding: 1.6rem 0;
+  }
+
+  .content-wrapper {
+    grid-area: content;
+
+    display: flex;
+    padding: 4.4rem 1.6rem 3.9rem;
+    gap: 3.4rem;
+  }
+
+  main img {
+    border-radius: 0.6rem;
+  }
+
+  main div.post-content {
+    padding: 0;
+  }
+
+  .post-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  aside {
+    margin-top: 0;
+    padding: 0;
+  }
+
+  aside div section {
+    width: 38.5rem;
+  }
+
+  footer {
+    grid-area: footer;
+  }
+}
+
+@keyframes bounce {
+  25% {
+    transform: translateY(-12px);
+  }
+
+  50% {
+    transform: translateY(0);
+  }
+
+  75% {
+    transform: translateY(-6px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes blink {
+  50% {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+@keyframes slideFadingLeft {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  75% {
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
